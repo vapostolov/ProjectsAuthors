@@ -1,0 +1,10 @@
+<h2>ProjectsAuthorsController#index</h2>
+<%= form_tag(:controller => "projects_authors", :action => "save", :method => "get") do %>
+  <%= hidden_field_tag 'project_id', @project_id %>
+  <select name="user_id">
+    <%= @users.each do |user| %>
+      <option value="<%= user.id %>"><%= user.lastname %></option>
+    <% end %>
+  </select>
+  <%= submit_tag("Save") %>
+<% end %>

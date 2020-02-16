@@ -2,8 +2,9 @@
 <%= form_tag(:controller => "projects_authors", :action => "save", :method => "get") do %>
   <%= hidden_field_tag 'project_id', @project_id %>
   <select name="user_id">
+    <option value="">None</option>
     <%= @users.each do |user| %>
-      <option value="<%= user.id %>"><%= user.lastname %></option>
+      <option value="<%= user.id %>"<%= @current_author_id == user.id ? " selected" : "" %>><%= user.lastname %></option>
     <% end %>
   </select>
   <%= submit_tag("Save") %>

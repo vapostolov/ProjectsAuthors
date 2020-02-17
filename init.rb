@@ -6,6 +6,7 @@ Redmine::Plugin.register :project_author do
   url 'http://example.com/path/to/plugin'
   author_url 'http://example.com/about'
   require_dependency 'project_author_hook_listener'
+  require_dependency 'override_render_project_hierarchy'
   permission :projects_authors, { :projects_authors => [:index, :save] }, :public => true
   menu :project_menu, :projects_authors, { :controller => 'projects_authors', :action => 'index' }, :caption => 'Author', :after => :activity, :param => :project_id
 end
